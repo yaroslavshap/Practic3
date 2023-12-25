@@ -26,7 +26,7 @@ class FileTransferService(my_pb2_grpc.FileTransferServiceServicer):
         height_1 = 256
         model = CommonNet()
         model.to(device)
-        model.load_state_dict(torch.load(r'/Users/aroslavsapoval/PycharmProjects/grpc_stream_neural/ves.pth'))
+        model.load_state_dict(torch.load(r'/Users/aroslavsapoval/myProjects/Practic3/GRPC_practic_neural/ves.pth'))
         image1 = Image.open(BytesIO(request.image_1))
         image2 = Image.open(BytesIO(request.image_2))
         left_test = np.array(image1.convert('RGB').resize((width_1, height_1), Image.BICUBIC))

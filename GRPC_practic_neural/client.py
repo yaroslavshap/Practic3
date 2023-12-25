@@ -3,7 +3,7 @@ from functools import reduce
 import grpc
 from my_pb2 import FileRequest
 from my_pb2_grpc import FileTransferServiceStub
-from datloader2 import Dataloader2
+from dataloader import Dataloader2
 from os.path import join
 import statistics
 import time
@@ -97,8 +97,8 @@ def run():
     max_message_length = 2000 * 1024 * 1024  # 10 МБ в байтах
     channel = grpc.insecure_channel('localhost:50052', options=(('grpc.max_send_message_length', max_message_length),))
     stub = FileTransferServiceStub(channel)
-    path_l = "/Users/aroslavsapoval/myProjects/images_grpc_512/left"
-    path_r = "/Users/aroslavsapoval/myProjects/images_grpc_512/right"
+    path_l = "/Users/aroslavsapoval/myProjects/data/images_grpc_512/left"
+    path_r = "/Users/aroslavsapoval/myProjects/data/images_grpc_512/right"
     images = Dataloader2(path_l, path_r)
     transfer_methods = {}
     popit = 0
